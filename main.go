@@ -1,35 +1,38 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sort"
+	// "strings"
+)
 
 func main() {
-	// var ages [3]int = [3]int{20, 25, 30}
-	var ages = [3]int{20, 25, 30}
+	// greeting := "hello there friends!"
 
-	names := [4]string{"yoshi", "mario", "peach", "bowo"}
-	names[1] = "gibran"
+	// fmt.Println(strings.Contains(greeting, "hello"))
+	// fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
 
-	fmt.Println(ages, len(ages))
-	fmt.Println(names, len(names))
+	// fmt.Println(strings.ToUpper(greeting))
+	// fmt.Println(strings.Index(greeting, "th'"))
 
-	// slices (use arrays under the hood, flexible)
-	var scores = []int{100, 50, 60}
-	scores[2] = 67
+	// fmt.Println(strings.Split(greeting, " there "))
 
-	fmt.Println(scores)
+	// fmt.Println("original value:", greeting)
 
-	scores = append(scores, 85)
+	ages:= []int{45, 52, 56, 54, 23, 50, 55, 23}
 
-	fmt.Println(scores)
+	sort.Ints(ages)
+	fmt.Println(ages)
 
-	// slice ranges
-	rangeOne := names[1:3]
-	rangeTwo:= names[1:]
-	rangeThree := names[:3]
+	index := sort.SearchInts(ages, 56)
+	fmt.Println(index)
 
-	fmt.Println(rangeOne, rangeTwo, rangeThree)
 
-	rangeOne = append(rangeOne, "koopa")
-	fmt.Println(rangeOne)
+	names := []string{"yoshi", "mario", "peach", "boweser", "luigi"}
+
+	sort.Strings(names)
+	fmt.Println(names)
+
+	fmt.Println(sort.SearchStrings(names, "mario"))
 
 }
